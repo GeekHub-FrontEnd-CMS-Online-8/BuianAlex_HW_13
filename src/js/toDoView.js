@@ -15,7 +15,8 @@ export default class View extends EventEmitter {
   }
   rebuildTable(){
     this.wraper.innerHTML = " ";
-    //this.showTaskList(this.model.taskList); 
+    //this.showTaskList(this.model.taskList);
+    this.filterBtnClassToggle(); 
     if (this.model.taskList.length === 0) {
       this.showMsg("no tasks yet");
     }
@@ -47,12 +48,33 @@ export default class View extends EventEmitter {
           break;  
         default: 
           break;
-      }
-      
+      }     
     }
+  }
+  filterBtnClassToggle(){
+    this.btnShowAll.classList.remove("active");
+    this.btnShowComleted.classList.remove("active");
+    this.btnshowNotCompled.classList.remove("active");
+    switch (this.model.taskFilter) {
+      case "completed":
+        this.btnShowComleted.classList.add("active");
+        break;
+      case "notCompleted":
+        this.btnshowNotCompled.classList.add("active");
+        break;
+      case "all":
+        this.btnShowAll.classList.add("active");
+        break;  
+      default: 
+        break;
+    }     
+
   }
   createTableRow(taskList, index){
     let taskRow = document.createElement("tr");
+    if(taskList[index].completed){
+      taskRow.classList.add("table-success");
+    }
 
       let order = document.createElement("td");
       order.innerHTML = index + 1;
