@@ -31,20 +31,26 @@ export default class View extends EventEmitter {
   }
 
   showTaskList(taskList){
+    let calcShowed = 0;
+    console.log();
+    
     for (let index = 0; index < taskList.length; index++) {
       switch (this.model.taskFilter) {
         case "completed":
           if (taskList[index].completed){
-           this.createTableRow(taskList, index);
+            calcShowed++;
+           this.createTableRow(taskList, index, calcShowed);
           }
           break;
         case "notCompleted":
           if (!taskList[index].completed) {
-            this.createTableRow(taskList, index);
+            calcShowed++;
+            this.createTableRow(taskList, index,calcShowed);
           }
           break;
         case "all":
-            this.createTableRow(taskList, index);
+          calcShowed++;
+          this.createTableRow(taskList, index, calcShowed);
           break;  
         default: 
           break;
@@ -68,27 +74,30 @@ export default class View extends EventEmitter {
       default: 
         break;
     }     
-
   }
-  createTableRow(taskList, index){
+
+  createTableRow(taskList, index, calcShowed){
     let taskRow = document.createElement("tr");
     if(taskList[index].completed){
       taskRow.classList.add("table-success");
     }
 
       let order = document.createElement("td");
-      order.innerHTML = index + 1;
+      order.innerHTML = calcShowed;
       taskRow.appendChild(order);
 
       let autor = document.createElement("td");
+      autor.classList.add('task-autor');
       autor.innerHTML = this.model.getAutor(taskList[index].userId);
       taskRow.appendChild(autor);
 
       let title = document.createElement("td");
       title.innerHTML = taskList[index].title;
+      title.classList.add('task-title');
       taskRow.appendChild(title);
       
       let actions = document.createElement("td");
+      actions.classList.add('task-title');
       this.createActionBar(actions, taskList[index].id,  taskList[index].completed);
       taskRow.appendChild(actions );
 
@@ -99,7 +108,7 @@ export default class View extends EventEmitter {
     let textWraper = document.createElement("div");
     textWraper.classList.add("text-msg");
     textWraper.textContent = text;
-    document.querySelector(".main").prepend(textWraper);
+    document.querySelector("body").prepend(textWraper);
   }
   
   createActionBar(taskRow, idTask, status) {
@@ -109,20 +118,21 @@ export default class View extends EventEmitter {
     let done = `<i class="fas fa-check-square"></i>`;
     let taskStatus = 0;
 
-
-    switch (status) {
-        case true:
-            taskStatus =  done;
-            break;
-    
-        default:
-            taskStatus =  wait;
-            break;
-    }
     let donBtn = document.createElement("button");
     donBtn.classList.add("btn");
     donBtn.classList.add("btn-outline-success");
     donBtn.setAttribute("data-index", idTask);
+    switch (status) {
+      case true:
+          taskStatus =  done;
+          donBtn.setAttribute('data-title',"Set uncomplete");
+          break;
+  
+      default:
+        donBtn.setAttribute('data-title',"Set complete");
+        taskStatus =  wait;
+        break;
+    }
     donBtn.innerHTML  = taskStatus;
     
     donBtn.addEventListener('click',
@@ -134,6 +144,7 @@ export default class View extends EventEmitter {
     showBtn.classList.add("btn");
     showBtn.classList.add("btn-outline-primary");
     showBtn.setAttribute("data-index", idTask);
+    showBtn.setAttribute('data-title',"Edit task");
     showBtn.innerHTML  = edit;
     showBtn.addEventListener("click",
       (e) => this.emit('show', e.currentTarget));
@@ -143,6 +154,7 @@ export default class View extends EventEmitter {
     delBtn.classList.add("btn");
     delBtn.classList.add("btn-outline-danger");
     delBtn.setAttribute("data-index", idTask);
+    delBtn.setAttribute('data-title',"Delete task");
     delBtn.innerHTML  = del;
     delBtn.addEventListener("click", 
     (e) => this.emit('delete',e.currentTarget));

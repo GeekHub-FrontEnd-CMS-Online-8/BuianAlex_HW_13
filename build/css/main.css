@@ -1,6 +1,17 @@
 .btn {
   margin-right: 1rem;
-  margin-bottom: 0.5rem; }
+  margin-bottom: 0.5rem;
+  position: relative; }
+  .btn:hover::after {
+    content: attr(data-title);
+    position: absolute;
+    z-index: 1;
+    background: rgba(255, 255, 230, 0.9);
+    color: #6e6c6c;
+    padding: 0 0.5rem; }
+
+tr {
+  vertical-align: middle; }
 
 .main {
   position: relative; }
@@ -16,5 +27,20 @@
           transform: translate(-50%, -50%); }
 
 .load-more {
-  display: block;
-  margin: 100px auto 0; }
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%); }
+
+.task-autor {
+  width: 10%;
+  font-style: italic; }
+
+.task-title {
+  width: 65%;
+  font-weight: bold; }
+
+.task-action {
+  width: 20%; }

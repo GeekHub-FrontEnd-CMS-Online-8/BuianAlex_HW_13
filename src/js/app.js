@@ -15,7 +15,4 @@ const view = new View(model, {
 })
 const control = new Controller(model, view);
 view.rebuildTable();
-view.filterBtnClassToggle();
 //control.getData();
-
-//ModelLocalStorage();

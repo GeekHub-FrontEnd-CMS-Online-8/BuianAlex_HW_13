@@ -1,5 +1,6 @@
 import $ from "jquery";
 import EventEmitter from './EventEmitter';
+import Model from "./toDoModel";
 
 export default class Controller extends EventEmitter {
   constructor(model, view) {
@@ -46,9 +47,13 @@ export default class Controller extends EventEmitter {
   }
 
   actionLoadMore(){
-    //this.model.loadMore();
-    this.view.rebuildTable();
-    // console.log("ddddddd");  
+    fetch('https://jsonplaceholder.typicode.com/todos')
+      .then(response => response.json())
+      .then(json => this.model.loadMore(json))
+      .catch(function () {
+        console.log("error");
+      });
+    this.view.rebuildTable(); 
   }
 
   actionFilter(filterType){
@@ -59,7 +64,8 @@ export default class Controller extends EventEmitter {
   getData(){
     fetch('https://jsonplaceholder.typicode.com/todos')
       .then(response => response.json())
-      .then(json => window.localStorage.setItem('testDB', JSON.stringify(json)))
+      .then(json => model)
+      //.then(json => window.localStorage.setItem('testDB', JSON.stringify(json)))
       .catch(function () {
         console.log("error");
       });

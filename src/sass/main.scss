@@ -1,6 +1,19 @@
 .btn{
   margin-right: 1rem;
   margin-bottom: 0.5rem;
+  position: relative;
+  &:hover::after { 
+    content: attr(data-title); 
+    position: absolute;
+    z-index: 1;
+    background: rgba(255,255,230,0.9);
+    color: rgb(110, 108, 108);
+    padding: 0 0.5rem;
+  }
+}
+
+tr{
+  vertical-align: middle;
 }
 .main{
   position: relative;
@@ -15,6 +28,23 @@
 }
 
 .load-more{
-  display: block;
-  margin: 100px auto 0;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.task-autor{
+  width: 10%;
+
+  font-style: italic;
+
+
+}
+.task-title{
+  width: 65%;
+  font-weight: bold;
+  
+}
+.task-action{
+  width: 20%;
 }
