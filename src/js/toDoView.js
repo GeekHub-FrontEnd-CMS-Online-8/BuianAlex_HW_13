@@ -12,11 +12,13 @@ export default class View extends EventEmitter {
     this.btnShowAll = elements.btnShowAll;
     this.btnShowComleted = elements.btnShowComleted;
     this.btnshowNotCompled = elements.btnshowNotCompled;
+    this.btnOrderTasks = elements.btnOrderTasks;
   }
+  
   rebuildTable(){
     this.wraper.innerHTML = " ";
-    //this.showTaskList(this.model.taskList);
-    this.filterBtnClassToggle(); 
+    this.filterBtnClassToggle();
+    this.orderDirectionToggle(); 
     if (this.model.taskList.length === 0) {
       this.showMsg("no tasks yet");
     }
@@ -24,33 +26,32 @@ export default class View extends EventEmitter {
       let warningMsg = document.querySelector('.text-msg');
       if (warningMsg){
         warningMsg.remove();
-      }
-      
-      this.showTaskList(this.model.taskList, 3);
+      }      
+      this.showTaskList();
     }
   }
 
-  showTaskList(taskList){
-    let calcShowed = 0;
-    console.log();
+  showTaskList(){
+    let toShow = this.model.taskList.slice();
+
+    if (this.model.oderTask==="up"){
+      toShow.reverse(); 
+    }
     
-    for (let index = 0; index < taskList.length; index++) {
+    for (let index = 0; index < toShow.length; index++) {
       switch (this.model.taskFilter) {
         case "completed":
-          if (taskList[index].completed){
-            calcShowed++;
-           this.createTableRow(taskList, index, calcShowed);
+          if (toShow[index].completed){
+            this.createTableRow(toShow[index]);
           }
           break;
         case "notCompleted":
-          if (!taskList[index].completed) {
-            calcShowed++;
-            this.createTableRow(taskList, index,calcShowed);
+          if (!toShow[index].completed) {
+            this.createTableRow(toShow[index]);
           }
           break;
         case "all":
-          calcShowed++;
-          this.createTableRow(taskList, index, calcShowed);
+          this.createTableRow(toShow[index]);
           break;  
         default: 
           break;
@@ -75,31 +76,42 @@ export default class View extends EventEmitter {
         break;
     }     
   }
+  orderDirectionToggle(){
+    if (this.model.oderTask === "down"){
+      this.btnOrderTasks.innerHTML = `<i class="fas fa-sort-amount-down"></i>`;
+      this.btnOrderTasks.setAttribute('data-title', "Old to new");
+    }
+    else{
+      this.btnOrderTasks.innerHTML = `<i class="fas  fa-sort-amount-up"></i>`;
+      this.btnOrderTasks.setAttribute('data-title', "New to old");
+    }
+  }
 
-  createTableRow(taskList, index, calcShowed){
+  createTableRow(task){
     let taskRow = document.createElement("tr");
-    if(taskList[index].completed){
+    if(task.completed){
       taskRow.classList.add("table-success");
     }
 
-      let order = document.createElement("td");
-      order.innerHTML = calcShowed;
-      taskRow.appendChild(order);
+      let taskId = document.createElement("td");
+      taskId.innerHTML = task.id;
+      taskId.classList.add('task-id');
+      taskRow.appendChild(taskId);
 
       let autor = document.createElement("td");
       autor.classList.add('task-autor');
-      autor.innerHTML = this.model.getAutor(taskList[index].userId);
+      autor.innerHTML = this.model.getAutor(task.userId);
       taskRow.appendChild(autor);
 
       let title = document.createElement("td");
-      title.innerHTML = taskList[index].title;
+      title.innerHTML = task.title;
       title.classList.add('task-title');
       taskRow.appendChild(title);
       
       let actions = document.createElement("td");
       actions.classList.add('task-title');
-      this.createActionBar(actions, taskList[index].id,  taskList[index].completed);
-      taskRow.appendChild(actions );
+      this.createActionBar(actions, task.id,  task.completed);
+      taskRow.appendChild(actions);
 
       this.wraper.appendChild(taskRow);
   }
@@ -113,7 +125,7 @@ export default class View extends EventEmitter {
   
   createActionBar(taskRow, idTask, status) {
     let del = `<i class="fas fa-trash-alt"></i>`;
-    let edit = `<i class="fas fa-edit"></i>`;
+    let edit = `<i class="fas fa-edit fa-sm"></i>`;
     let wait = `<i class="far fa-square"></i>`;
     let done = `<i class="fas fa-check-square"></i>`;
     let taskStatus = 0;
@@ -159,6 +171,6 @@ export default class View extends EventEmitter {
     delBtn.addEventListener("click", 
     (e) => this.emit('delete',e.currentTarget));
     taskRow.appendChild(delBtn);       
-}
+  }
 
 };

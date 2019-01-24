@@ -1,6 +1,6 @@
 .btn{
   margin-right: 1rem;
-  margin-bottom: 0.5rem;
+  //margin-bottom: 0.5rem;
   position: relative;
   &:hover::after { 
     content: attr(data-title); 
@@ -11,9 +11,17 @@
     padding: 0 0.5rem;
   }
 }
-
-tr{
+.nav-item {
+  button{
+    margin-bottom: 0.5rem;
+  }
+}
+th{
+  line-height: 38px;
+}
+td{
   vertical-align: middle;
+  line-height: 48px;
 }
 .main{
   position: relative;
@@ -26,12 +34,18 @@ tr{
   left:50%;
   transform: translate(-50%,-50%);
 }
+#tasks-order{
+  margin: 0 auto;
+}
 
 .load-more{
   position: fixed;
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
+}
+.task-id{
+  text-align: center;
 }
 .task-autor{
   width: 10%;
@@ -41,10 +55,10 @@ tr{
 
 }
 .task-title{
-  width: 65%;
+  width: 75%;
   font-weight: bold;
   
 }
 .task-action{
-  width: 20%;
+  width: 10%;
 }

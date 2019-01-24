@@ -5,6 +5,7 @@ export default class Model {
     this.lastId = JSON.parse(window.localStorage.getItem('lastID'))|| 1;
     this.loadStep = JSON.parse(window.localStorage.getItem('loadStep')) || 0;
     this.taskFilter = JSON.parse(window.localStorage.getItem('taskFilter')) || "all";
+    this.oderTask = JSON.parse(window.localStorage.getItem('oderTask'))|| "up" ;
     this.activeUser = 11;
   }
 
@@ -31,6 +32,11 @@ export default class Model {
   filterTask(filterType){
     this.taskFilter = filterType;
     window.localStorage.setItem('taskFilter', JSON.stringify(this.taskFilter));
+  }
+  ///if order true - direction from old to new / false v.v.
+  OrderDirection(){
+    this.oderTask ==="up"?this.oderTask ="down":this.oderTask ="up";
+    window.localStorage.setItem('oderTask', JSON.stringify(this.oderTask));
   }
   
   setComplited(id){

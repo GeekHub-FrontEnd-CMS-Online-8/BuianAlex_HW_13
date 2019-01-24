@@ -20,7 +20,9 @@ export default class Controller extends EventEmitter {
     this.view.btnShowComleted.addEventListener('click',
       e => { this.actionFilter("completed"); });
     this.view.btnshowNotCompled.addEventListener('click',
-      e => { this.actionFilter("notCompleted"); });     
+      e => { this.actionFilter("notCompleted"); });
+    this.view.btnOrderTasks.addEventListener('click',
+      e => { this.actionOrderDirection(); });       
 
     
     view.on('completed', (task) => this.actionComplited(task));
@@ -49,29 +51,24 @@ export default class Controller extends EventEmitter {
   actionLoadMore(){
     fetch('https://jsonplaceholder.typicode.com/todos')
       .then(response => response.json())
-      .then(json => this.model.loadMore(json))
+      .then(json => {
+        this.model.loadMore(json);
+        this.view.rebuildTable();
+      })
       .catch(function () {
         console.log("error");
-      });
-    this.view.rebuildTable(); 
+      });    
   }
 
   actionFilter(filterType){
     this.model.filterTask(filterType);
     this.view.rebuildTable();
   }
-  
-  getData(){
-    fetch('https://jsonplaceholder.typicode.com/todos')
-      .then(response => response.json())
-      .then(json => model)
-      //.then(json => window.localStorage.setItem('testDB', JSON.stringify(json)))
-      .catch(function () {
-        console.log("error");
-      });
+  actionOrderDirection(){
+    this.model.OrderDirection();
+    this.view.rebuildTable();
   }
- 
-
+  
   modalNewTask(){
     document.getElementById('myModal').setAttribute("data-index", '');
     document.getElementById("modal-title").textContent= "ADD new task";
