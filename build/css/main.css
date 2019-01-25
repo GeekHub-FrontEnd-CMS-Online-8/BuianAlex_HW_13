@@ -1,5 +1,5 @@
 .btn {
-  margin-right: 1rem;
+  margin-right: 0.5rem;
   position: relative; }
   .btn:hover::after {
     content: attr(data-title);
@@ -8,6 +8,10 @@
     background: rgba(255, 255, 230, 0.9);
     color: #6e6c6c;
     padding: 0 0.5rem; }
+
+.active-filter {
+  color: #0056b3;
+  text-decoration: underline; }
 
 .nav-item button {
   margin-bottom: 0.5rem; }
@@ -32,7 +36,10 @@ td {
       -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%); }
 
-#tasks-order {
+.tasks-order {
+  width: 50px; }
+
+.btn-task-order {
   margin: 0 auto; }
 
 .load-more {
@@ -47,12 +54,11 @@ td {
   text-align: center; }
 
 .task-autor {
-  width: 10%;
+  width: 150px;
   font-style: italic; }
 
 .task-title {
-  width: 75%;
   font-weight: bold; }
 
 .task-action {
-  width: 10%; }
+  width: 200px; }
