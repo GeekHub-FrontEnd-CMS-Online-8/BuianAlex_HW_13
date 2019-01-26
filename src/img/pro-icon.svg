@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 21" width="20" height="21">
+	<defs>
+		<filter id="flt1"> <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.243   0 0 0 0 0.239   0 0 0 0 0.239   0 0 0 1 0" /> </filter>
+		<image width="20" height="21" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAVCAMAAABxCz6aAAAAAXNSR0IB2cksfwAAALFQTFRFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJNsC0gAAADt0Uk5TADzoFVtQQm//Ycoep/VNUVkMpgXpvb4sbWvy+HQHBnVFXIxuVOATOwLT2ksg2zmvH4ikWofZjtgQyTIpD/o9AAAAzUlEQVR4nG2R6Q6CQAyEh0uLgIiAIAjiDXjfx/s/mLKLQIzzp5sv6XY6BUoJoiigIUlWWm0SRWq3FFkqoUofdTStU1S1hLrRNXsWYPXMrtHnzHbc+quBYxfFc8mvoU+uBwyDcBTVMB6HwRA6JTWaTG0kpEOgWcXmtFhiRiukWR4jXVuM5RvE2yz9wG2MHe3tgh3AIWuPjnQ6MwbWXg66EF0ZY4O+lm53xiJmqTL/aJj/WdPla/4PhEf31LRnMzpJNr8hm1XIf8/B9XpVzzfX2xGop9ULjAAAAABJRU5ErkJggg=="/>
+	</defs>
+	<style>
+		tspan { white-space:pre }
+	</style>
+	<use id="Icon" style="filter: url(#flt1)" href="#img1" x="0" y="0" />
+</svg>

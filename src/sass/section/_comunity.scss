@@ -1,0 +1,50 @@
+$my: 90%;
+.comuniti{
+    background-color: #f5f6f7;
+    padding: 8rem 0;
+}
+.f-slide{
+    padding: 8rem 0 0;
+    text-align: center;
+    padding: 2rem;
+    h1{
+        font-size: 1rem;
+        letter-spacing: 2px;
+        line-height: 20px;
+        color: #373737;
+        font-weight: bold;
+        margin-bottom: 1rem; 
+    } 
+    p{
+        font-size: 0,7rem;
+        letter-spacing: 2px;
+        color: #373737;
+        margin-bottom: 1rem;   
+    }
+    img{
+        width: 74px;
+        height: 66px;
+        margin-bottom: 1rem;
+    }
+
+}
+.clider{
+    display: flex;
+    flex-wrap: wrap;
+
+}
+.clider-item{
+    width: 100%;
+}
+
+@media (min-width: 576px) { 
+  .clider-item{
+    width: $my;
+}
+.clider{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+    
+}

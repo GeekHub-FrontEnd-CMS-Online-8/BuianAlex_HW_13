@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 50" width="15" height="50">
+	<defs>
+		<filter id="flt1"> <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1   0 0 0 1 0" /> </filter>
+		<image width="15" height="50" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAyCAMAAAC07HELAAAAAXNSR0IB2cksfwAAAkBQTFRF7u7u7u7ut7e3Y2NjKSkpDAwMKSkpurq67u7u5OTk5OTkaGhoBgYGBAQENTU1SkpKNTU1BAQEAgICZGRk5ubm5ubm4eHh4eHhU1NTAAAASUlJy8vLq6urh4eHqampx8fHS0tLUlJSc3Nzc3NzU1NT6enp6enpq6urh4eHqamprq6urq6uXl5edHR0dHR0oaGhGRkZNjY24eHh4ODg4ODgOzs7GRkZpqamh4eHnp6enp6emZmZmZmZeXl5YWFhDQ0Nk5OTk5OTkJCQkJCQDAwMYmJiV1dXGxsbWFhYWFhYfn5+fn5+GhoaWVlZaGhoBQUFnJycnJycioqKzc3Nzc3NU1NTnZ2dfn5+lJSUlpaWc3NzdnZ2p6enKioqGRkZwsLCwsLChISEhISEExMTKysrqKiompqampqaNDQ0oKCgoKCgqqqqqqqqQkJCmZmZ4+Pj4+PjgYGBJCQkjIyMlJSUioqKlpaWj4+PJCQkenp63d3d3d3doKCgHR0dFBQUHh4eExMTnp6e8/Pz8/Pz0dHR0dHRjY2NXFxcICAgVlZWiYmJ3t7e3t7epKSkpKSkaGhowMDAwMDAkpKSkpKSYWFhurq6urq6k5OTubm5ubm5lJSUkZGRkZGRuLi4uLi4YGBgoqKioqKiX19fyMjIyMjIXV1dYGBgfHx8ycnJbGxsxsbGeHh4XV1dgoKCgoKCHx8fISEheXl5eXl5uLi4QEBAPj4+tLS0tLS0nZ2dnZ2dFxcXnJyc3d3dp6en5+fn5+fnSFv+rwAAAMB0Uk5TAAZFm83mzEMIABaf+vzSvtH7/qMUAAAPsv+8OxEMETu5swCKnQkAAAAAAAWYigAs7c8NAA3K7CpnYgAAW26f9yQAACL3nqbnFgAAGOiok/8wAAAAMI9VgwAAfV8d2+4rAAAl69wdAGXKKAAAKcdlAAGD4no8LDx444oCAGDl9ur3ZgEAABVdmeScXhIAABWaDAAAHKIRABwRABwAHBEAAAAZoA8AAAVhP5Q4YgYAe+nhgQASx8oUAABP8lAKXQcA/YjO4AAAAVlJREFUeJy9zuVSgkEUgOGj2J3o2mJhd4HdHdgNdmN3g42N2N3dXbfmfjveAI7j82vf2TlnFwBARpYmJ69AU1TCZ1BWVlFVU9fQ1NLW0dXT1we6gSEyMjYxNTO3QJYGdGBYIWsbWzumvYOjE3J2AVc3dw86Hbenp5e3jy/4IX8Wi4WbzWYHoEAICg4JxZhhWHhEJERFx8RS4rD4hERISk5JxThpWDrKgEyUhW+yOTkMBiMX5UF+QWERl4ubxysuKS2D8gpUWVWNu6a2DtWzgd/QiJqaW1rb2jtQZ1c38PnVPb2or38A9Q4OCQS4hcLhkdGx8YlJkeCnhVPTM7Nzop+exxbEixKJhOpQYkm8vEJI3dnE6q/npd0n7Xv//b+/3r9GrIs3NgnYomzv7O7tH1BIHx4dn5yenZO+oFxeXfff3FKATN3do4fHJwo8Ey+vb6kEdBPvH59fxDdTBEHX+ZcWRAAAAABJRU5ErkJggg=="/>
+	</defs>
+	<style>
+		tspan { white-space:pre }
+	</style>
+	<use id="Arrow" style="filter: url(#flt1)" href="#img1" x="0" y="0" />
+</svg>

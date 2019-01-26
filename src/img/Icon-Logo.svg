@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 173 29" width="173" height="29">
+	<defs>
+		<filter id="flt1"> <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.361   0 0 0 0 0.361   0 0 0 0 0.361   0 0 0 1 0" /> </filter>
+		<image width="41" height="29" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACkAAAAdCAMAAAAAVbV/AAAAAXNSR0IB2cksfwAAAj1QTFRF////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////b+3sUQAAAL90Uk5TAANnNDL/iAEGjqzGPU/SBISpArl2FMlMZsEJbM8HEt5UvmQLCJKGojrWHhGuIf3EM90oqpbync5wq6SML7NqyF93rza3cm0f4jsM249WORdQlLQll1sYSdMuIs1LaVkPw3y7INnaYFjAEFMjHCu1e6i8g6UOxZkK1y3jKUEV1Cpj0FWToJGcQsxiiU3fNRnnRW94BbbR2MJex72L+ZWjioVcGmjxeXV6fqGByyexPxafjTfVQE5KJhMNUb/K5rgfCe++AAACZElEQVR4nGNgwASMTMxYRLEBFlY2dqIUcnBycfMQpZKXj19AkBiFQsIiDKJi4kSolJCUYmCQlpHFq4gR6BE5eQUgi0NRCUgq41KoogpUpKYO9reGphaDto4uDpUKevr8BoZGEF3GJgwCpmY4jDS3sLSwsuaH8Gxs7ewdxFiwqnR0YnCWd9GGcV1Z3RjcJIWwKHT38GTw8vaB831Z/Rj8ZQKwqAw0EWJQ4A4KhnK1Q8zV5RhCJcMwFIZHRDJERcdwqkMDMtY2LDqOIT4hEV0ho4410KVJDMkpBmC+f2oaQ3pGJkNWQjaaynTFHIZcGRsGBrc8sOfzC4BEYREDQzEnaroqKZVmYNApA7LKK9KAZGVVNZCsSallqKmrR1HZkFTO4NnoD2I2iQEDiqsZLOzTwsDQ2oYcUjmG7QyyHZ0QDlcXQ7d9LZgZ3NPL0NffjqTS2pKBQUk/E8KZEJ1cOBHCZJ+kM5nBYgpCocHUKIaojAkwrus0kxIo03/6DAbZmUowGfZZsxkYiua0qc4NVAUCtXmstkXW1taz58/vWiAjnMmwcGo5VGWT5CIG/vbFsdJuEydOtHCdmLfEfOkyR8fl+fn5K5bGhjEor1wFURi/2gElHNas5c1bhyKyrgISUhYZ61HEy6wYlrtwIIuobNjICKSyxbpRFG5q1GWQKk1DEavcvAXondlOjCiiko5AYus01DzUXCzLwMy3LbMvbL2//3pRIJCTStu8fdGisB1TBHaC+Nra2pnxJSXlWty7GNg8ZiXo6yckJOhPBwLJ3fLeM1ev3sM9dW/CdLCA5HTJjAzJfYZcAJqyjVpykBnkAAAAAElFTkSuQmCC"/>
+	</defs>
+	<style>
+		tspan { white-space:pre }
+		.txt0 { font-size: 18px;letter-spacing: 2px;line-height: 50px;fill: #757575;font-family: "Montserrat" } 
+	</style>
+	<use id="Icon Logo" style="filter: url(#flt1)" href="#img1" x="0" y="0" />
+	<text id="ATLANTIDA" style="transform: matrix(1,0,0,1,53,24)" >
+		<tspan x="0" y="0" class="txt0">ATLANTIDA</tspan>
+	</text>
+</svg>

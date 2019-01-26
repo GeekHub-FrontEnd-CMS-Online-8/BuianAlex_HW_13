@@ -1,0 +1,32 @@
+.third{
+    overflow: hidden;
+    padding: 8rem 0 0;
+    background-color: #fff;
+    .conteiner{
+        display: flex;
+        flex-direction: column; 
+    }
+}
+.third-foto{
+    width: 100%;
+    img{
+        width: 50%;
+    }
+}
+
+   
+
+
+@media (min-width: 576px) { 
+    .third{
+        .conteiner{
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: space-between;
+        }
+    }
+    .text-left, .text-foto{
+        width: 49%;
+    }
+    
+}

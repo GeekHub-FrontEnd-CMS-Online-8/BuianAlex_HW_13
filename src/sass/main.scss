@@ -1,71 +1,18 @@
-.btn{
-  margin-right: 0.5rem;
-  //margin-bottom: 0.5rem;
-  position: relative;
-  &:hover::after { 
-    content: attr(data-title); 
-    position: absolute;
-    z-index: 1;
-    background: rgba(255,255,230,0.9);
-    color: rgb(110, 108, 108);
-    padding: 0 0.5rem;
-  }
-}
-
-.active-filter{
-  color: #0056b3;
-  text-decoration: underline;
-}
-.nav-item {
-  button{
-    margin-bottom: 0.5rem;
-  }
-}
-th{
-  line-height: 38px;
-}
-td{
-  vertical-align: middle;
-  line-height: 48px;
-}
-.main{
-  position: relative;
-}
-.text-msg{
-  color: red;
-  text-transform: uppercase;
-  position: absolute;
-  top:50%;
-  left:50%;
-  transform: translate(-50%,-50%);
-}
-.tasks-order{
-  width: 50px;
-}
-.btn-task-order{
-  margin: 0 auto;
-}
-
-.load-more{
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-.task-id{
-  text-align: center;
-}
-.task-autor{
-  
-  width: 150px;
-//text-align: center;
-  font-style: italic;
-}
-
-.task-title{
-  font-weight: bold;
-  
-}
-.task-action{
-  width: 200px;
-}
+@import "mixins";
+@import "components";
+@import "fonts";
+@import "global";
+@import "./section/welcome";
+@import "./section/about";
+@import "./section/services";
+@import "./section/history";
+@import "./section/team";
+@import "./section/portfolio";
+@import "./section/prices";
+@import "./section/purchase";
+@import "./section/blog-home";
+@import "./section/clients";
+@import "./section/testimonials";
+@import "./section/map";
+@import "./section/footer";
+@import "./section/blog";
