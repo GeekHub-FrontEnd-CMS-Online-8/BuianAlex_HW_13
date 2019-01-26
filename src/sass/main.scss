@@ -1,5 +1,5 @@
 .btn{
-  margin-right: 1rem;
+  margin-right: 0.5rem;
   //margin-bottom: 0.5rem;
   position: relative;
   &:hover::after { 
@@ -10,6 +10,11 @@
     color: rgb(110, 108, 108);
     padding: 0 0.5rem;
   }
+}
+
+.active-filter{
+  color: #0056b3;
+  text-decoration: underline;
 }
 .nav-item {
   button{
@@ -34,7 +39,10 @@ td{
   left:50%;
   transform: translate(-50%,-50%);
 }
-#tasks-order{
+.tasks-order{
+  width: 50px;
+}
+.btn-task-order{
   margin: 0 auto;
 }
 
@@ -48,17 +56,16 @@ td{
   text-align: center;
 }
 .task-autor{
-  width: 10%;
-
+  
+  width: 150px;
+//text-align: center;
   font-style: italic;
-
-
 }
+
 .task-title{
-  width: 75%;
   font-weight: bold;
   
 }
 .task-action{
-  width: 10%;
+  width: 200px;
 }

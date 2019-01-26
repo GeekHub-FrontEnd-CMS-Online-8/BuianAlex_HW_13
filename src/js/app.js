@@ -13,7 +13,8 @@ const view = new View(model, {
   btnShowComleted: document.getElementById('showComleted'),
   btnshowNotCompled: document.getElementById('showNotCompled'),
   btnOrderTasks: document.getElementById('tasks-order'),
+  autorSelect: document.getElementById('autorSelect'),
 })
 const control = new Controller(model, view);
 view.rebuildTable();
-//control.getData();
+

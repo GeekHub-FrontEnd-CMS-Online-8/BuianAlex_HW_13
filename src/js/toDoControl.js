@@ -23,7 +23,8 @@ export default class Controller extends EventEmitter {
       e => { this.actionFilter("notCompleted"); });
     this.view.btnOrderTasks.addEventListener('click',
       e => { this.actionOrderDirection(); });       
-
+    this.view.autorSelect.addEventListener('change',
+          e => { this.actionFilterAutors(e); });  
     
     view.on('completed', (task) => this.actionComplited(task));
     view.on('delete', (task) => this.actionDelete(task));
@@ -64,6 +65,12 @@ export default class Controller extends EventEmitter {
     this.model.filterTask(filterType);
     this.view.rebuildTable();
   }
+
+  actionFilterAutors(e){
+    this.model.autorsFilterState(e.currentTarget.value);
+    this.view.rebuildTable();
+  }
+
   actionOrderDirection(){
     this.model.OrderDirection();
     this.view.rebuildTable();

@@ -1,3 +1,5 @@
+//import { threadId } from "worker_threads";
+
 export default class Model {
   constructor(view) {
     this.view = view;
@@ -6,7 +8,9 @@ export default class Model {
     this.loadStep = JSON.parse(window.localStorage.getItem('loadStep')) || 0;
     this.taskFilter = JSON.parse(window.localStorage.getItem('taskFilter')) || "all";
     this.oderTask = JSON.parse(window.localStorage.getItem('oderTask'))|| "up" ;
+    this.autorsFilter = JSON.parse(window.localStorage.getItem('autorsFilter'))|| "all";
     this.activeUser = 11;
+    this.autorsList = {1:"James",2:"Robert",3:"Michael",4:"William",5:"Linda",6:"Thomas",7:"Nancy",8:"Lisa",9:"Donald",10:"Sandra",11:"Alexx"};
   }
 
   toStorage(userId, title, fullText, completed = false){
@@ -37,6 +41,11 @@ export default class Model {
   OrderDirection(){
     this.oderTask ==="up"?this.oderTask ="down":this.oderTask ="up";
     window.localStorage.setItem('oderTask', JSON.stringify(this.oderTask));
+  }
+
+  autorsFilterState(autor){
+    this.autorsFilter = autor;
+    window.localStorage.setItem('autorsFilter', JSON.stringify(this.autorsFilter));
   }
   
   setComplited(id){
@@ -69,9 +78,8 @@ export default class Model {
   }
 
   getAutor(id){
-    let autorList = {1:"James",2:"Robert",3:"Michael",4:"William",5:"Linda",6:"Thomas",7:"Nancy",8:"Lisa",9:"Donald",10:"Sandra",11:"Alexx"};
-    if( autorList[id]!== undefined){
-      return autorList[id];
+    if( this.autorsList[id]!== undefined){
+      return this.autorsList[id];
     }
     else{
       return "no name"

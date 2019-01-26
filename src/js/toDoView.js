@@ -13,12 +13,14 @@ export default class View extends EventEmitter {
     this.btnShowComleted = elements.btnShowComleted;
     this.btnshowNotCompled = elements.btnshowNotCompled;
     this.btnOrderTasks = elements.btnOrderTasks;
+    this.autorSelect = elements.autorSelect;
   }
   
   rebuildTable(){
     this.wraper.innerHTML = " ";
     this.filterBtnClassToggle();
     this.orderDirectionToggle(); 
+    this.createAutorSelector();
     if (this.model.taskList.length === 0) {
       this.showMsg("no tasks yet");
     }
@@ -33,6 +35,10 @@ export default class View extends EventEmitter {
 
   showTaskList(){
     let toShow = this.model.taskList.slice();
+    toShow = this.autorFilter(this.model.autorsFilter, toShow);
+    if(toShow.length === 0){
+      this.showMsg(this.model.getAutor(this.model.autorsFilter)+ " doesn't have a tasks");
+    }
 
     if (this.model.oderTask==="up"){
       toShow.reverse(); 
@@ -58,24 +64,37 @@ export default class View extends EventEmitter {
       }     
     }
   }
+
+  autorFilter(autor, taskList){
+
+    if(autor !== "all"){
+      let filteredTasks = taskList.filter(function(item) {
+        return item.userId == autor;
+      });
+      return filteredTasks;
+    }
+    return taskList;
+  }
+
   filterBtnClassToggle(){
-    this.btnShowAll.classList.remove("active");
-    this.btnShowComleted.classList.remove("active");
-    this.btnshowNotCompled.classList.remove("active");
+    this.btnShowAll.classList.remove("active-filter");
+    this.btnShowComleted.classList.remove("active-filter");
+    this.btnshowNotCompled.classList.remove("active-filter");
     switch (this.model.taskFilter) {
       case "completed":
-        this.btnShowComleted.classList.add("active");
+        this.btnShowComleted.classList.add("active-filter");
         break;
       case "notCompleted":
-        this.btnshowNotCompled.classList.add("active");
+        this.btnshowNotCompled.classList.add("active-filter");
         break;
       case "all":
-        this.btnShowAll.classList.add("active");
+        this.btnShowAll.classList.add("active-filter");
         break;  
       default: 
         break;
     }     
   }
+
   orderDirectionToggle(){
     if (this.model.oderTask === "down"){
       this.btnOrderTasks.innerHTML = `<i class="fas fa-sort-amount-down"></i>`;
@@ -109,11 +128,24 @@ export default class View extends EventEmitter {
       taskRow.appendChild(title);
       
       let actions = document.createElement("td");
-      actions.classList.add('task-title');
+      actions.classList.add('task-action');
       this.createActionBar(actions, task.id,  task.completed);
       taskRow.appendChild(actions);
 
       this.wraper.appendChild(taskRow);
+  }
+
+  createAutorSelector(){
+    let all = document.createElement("option");
+    all.innerHTML = "All autors";
+    all.setAttribute('value', "all");
+    this.autorSelect.appendChild(all);  
+    for(let kay in this.model.autorsList ){
+      let option = document.createElement("option");
+      option.innerHTML = this.model.autorsList[kay];
+      option.setAttribute('value', kay);
+      this.autorSelect.appendChild(option);  
+    }
   }
 
   showMsg(text){
@@ -127,7 +159,7 @@ export default class View extends EventEmitter {
     let del = `<i class="fas fa-trash-alt"></i>`;
     let edit = `<i class="fas fa-edit fa-sm"></i>`;
     let wait = `<i class="far fa-square"></i>`;
-    let done = `<i class="fas fa-check-square"></i>`;
+    let done = `<i class="fas fa-check"></i>`;
     let taskStatus = 0;
 
     let donBtn = document.createElement("button");

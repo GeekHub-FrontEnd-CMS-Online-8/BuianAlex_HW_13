@@ -24,7 +24,7 @@
   <nav class="navbar navbar-expand-sm bg-light navbar-light">
     <ul class="navbar-nav">
       <li class="nav-item ">
-          <button type="button" class="btn btn-primary" id="createNew">ADD new task</button>
+          <button type="button" class="btn btn-primary" id="createNew">ADD task</button>
       </li>
       <li class="nav-item ">
         <button type="button" class="btn btn-primary " id="load-more" data-title="Sync API"><i class="fas fa-cloud-download-alt"></i></button>
@@ -32,13 +32,13 @@
        
 
       <li class="nav-item ">
-        <button type="button" class="btn btn-primary" id="showAll" data-title="Show all tasks">All</button>
+        <button type="button" class="btn btn-link" id="showAll" data-title="Show all tasks">All</button>
       </li>
       <li class="nav-item ">
-          <button type="button" class="btn btn-primary" id="showComleted"  data-title="Show comleted tasks">Complete</button>
+          <button type="button" class="btn btn-link" id="showComleted"  data-title="Show comleted tasks">Completed</button>
       </li>
       <li class="nav-item ">
-        <button type="button" class="btn btn-primary" id="showNotCompled" data-title="Show uncomleted tasks">Uncomplete</button>
+        <button type="button" class="btn btn-link" id="showNotCompled" data-title="Show uncomleted tasks">Uncompleted</button>
       </li>
       
     </ul>
@@ -47,8 +47,10 @@
       <table class="table table-hover">
           <thead>
             <tr>
-              <th><button class="btn btn-light" id="tasks-order"></button></th>
-              <th >Autor</th>
+              <th class="tasks-order"><button class="btn btn-light btn-task-order" id="tasks-order"></button></th>
+              <th class="task-autor">
+                  <select class="form-control" id="autorSelect"></select>
+              </th>
               <th >Title</th>
               <th>Action</th>
             </tr>
