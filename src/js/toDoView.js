@@ -1,4 +1,3 @@
-import $ from "jquery";
 import EventEmitter from './EventEmitter';
 
 export default class View extends EventEmitter { 
@@ -18,33 +17,44 @@ export default class View extends EventEmitter {
   
   rebuildTable(){
     this.wraper.innerHTML = " ";
+    //set button state 
     this.filterBtnClassToggle();
     this.orderDirectionToggle(); 
     this.createAutorSelector();
-    if (this.model.taskList.length === 0) {
-      this.showMsg("no tasks yet");
-    }
-    else {
-      let warningMsg = document.querySelector('.text-msg');
-      if (warningMsg){
-        warningMsg.remove();
-      }      
-      this.showTaskList();
-    }
+
+    let warningMsg = document.querySelector('.text-msg');
+    if (warningMsg){
+      warningMsg.remove();
+    } 
+
+    this.showTaskList();
   }
 
   showTaskList(){
     let toShow = this.model.taskList.slice();
+    
+    //filter by autor
     toShow = this.autorFilter(this.model.autorsFilter, toShow);
+    console.log(toShow);
+    
     if(toShow.length === 0){
-      this.showMsg(this.model.getAutor(this.model.autorsFilter)+ " doesn't have a tasks");
+      if(this.model.autorsFilter==="all"){
+        this.showMsg("no tasks at all");
+      }
+      else{
+        this.showMsg(this.model.getAutor(this.model.autorsFilter)+ " doesn't have a tasks");
+      }
     }
 
+
+    //filter new-old
     if (this.model.oderTask==="up"){
       toShow.reverse(); 
     }
     
     for (let index = 0; index < toShow.length; index++) {
+      
+      //filter task state
       switch (this.model.taskFilter) {
         case "completed":
           if (toShow[index].completed){
@@ -66,7 +76,6 @@ export default class View extends EventEmitter {
   }
 
   autorFilter(autor, taskList){
-
     if(autor !== "all"){
       let filteredTasks = taskList.filter(function(item) {
         return item.userId == autor;
@@ -136,16 +145,24 @@ export default class View extends EventEmitter {
   }
 
   createAutorSelector(){
+
+    this.autorSelect.innerHTML=" ";
     let all = document.createElement("option");
     all.innerHTML = "All autors";
     all.setAttribute('value', "all");
+    if("all"===this.model.autorsFilter){
+        all.setAttribute('selected', " ");
+      }
     this.autorSelect.appendChild(all);  
-    for(let kay in this.model.autorsList ){
+    for(let key in this.model.autorsList ){
       let option = document.createElement("option");
-      option.innerHTML = this.model.autorsList[kay];
-      option.setAttribute('value', kay);
+      option.innerHTML = this.model.autorsList[key];
+      option.setAttribute('value', key);
+      if(key===this.model.autorsFilter){
+        option.setAttribute('selected', " ");
+      }
       this.autorSelect.appendChild(option);  
-    }
+    }    
   }
 
   showMsg(text){

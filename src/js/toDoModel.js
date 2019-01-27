@@ -1,4 +1,3 @@
-//import { threadId } from "worker_threads";
 
 export default class Model {
   constructor(view) {
@@ -37,7 +36,7 @@ export default class Model {
     this.taskFilter = filterType;
     window.localStorage.setItem('taskFilter', JSON.stringify(this.taskFilter));
   }
-  ///if order true - direction from old to new / false v.v.
+
   OrderDirection(){
     this.oderTask ==="up"?this.oderTask ="down":this.oderTask ="up";
     window.localStorage.setItem('oderTask', JSON.stringify(this.oderTask));
